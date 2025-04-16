@@ -17,9 +17,11 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundStyle(.white)
                         .frame(width: 100, height: 50)
+                        .padding(.vertical, -95)
                     NavigationLink("Play"){
                         PlayPage()
                     }
+                    .padding(.vertical, -90)
                     .foregroundStyle(.black)
                     .font(.system(size:35, weight: .bold, design: .rounded))
                     
