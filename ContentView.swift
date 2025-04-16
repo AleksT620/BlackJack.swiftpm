@@ -13,53 +13,54 @@ struct ContentView: View {
                 Text("Blackjack")
                     .font(.system(size: 52, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white)
-                        .frame(width: 140, height: 200)
-                        .shadow(radius: 10)
-                        .overlay(
-                            VStack {
-                                HStack {
-                                    Text("A")
-                                        .font(.largeTitle)
-                                        .bold()
+                    
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.white)
+                            .frame(width: 140, height: 200)
+                            .shadow(radius: 10)
+                            .overlay(
+                                VStack {
+                                    HStack {
+                                        Text("A")
+                                            .font(.largeTitle)
+                                            .bold()
+                                        Spacer()
+                                    }
                                     Spacer()
                                 }
-                                Spacer()
-                            }
-                                .padding(14)
-                                .foregroundColor(.black)
-                        )
-                        .rotationEffect(.degrees(-15))
-                        .offset(x: -40)
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white)
-                        .frame(width: 140, height: 200)
-                        .shadow(radius: 10)
-                        .overlay(
-                            VStack {
-                                HStack {
-                                    Text("K")
-                                        .font(.largeTitle)
-                                        .bold()
+                                    .padding(14)
+                                    .foregroundColor(.black)
+                            )
+                            .rotationEffect(.degrees(-15))
+                            .offset(x: -40)
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.white)
+                            .frame(width: 140, height: 200)
+                            .shadow(radius: 10)
+                            .overlay(
+                                VStack {
+                                    HStack {
+                                        Text("K")
+                                            .font(.largeTitle)
+                                            .bold()
+                                        Spacer()
+                                    }
                                     Spacer()
+                                    HStack {
+                                        Spacer()
+                                        Text("♣︎")
+                                            .font(.title)
+                                    }
                                 }
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    Text("♣︎")
-                                        .font(.title)
-                                }
-                            }
-                                .padding(14)
-                                .foregroundColor(.black)
-                        )
-                        .rotationEffect(.degrees(15))
-                        .offset(x: 40)
+                                    .padding(14)
+                                    .foregroundColor(.black)
+                            )
+                            .rotationEffect(.degrees(15))
+                            .offset(x: 40)
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
         }
-    }
-}
+    
+
