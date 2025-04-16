@@ -26,11 +26,6 @@ struct ContentView: View {
                     .font(.system(size:35, weight: .bold, design: .rounded))
                     
                 }
-                
-                
-                
-                
-                
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color.white)
                             .frame(width: 140, height: 200)
@@ -73,11 +68,9 @@ struct ContentView: View {
                                     .foregroundColor(.black)
                             )
                             .rotationEffect(.degrees(15))
-                            .offset(x: 40)
+                            .offset(x: 40,y: -350)
                     }
                     Spacer()
                 }
             }
         }
-    
-
