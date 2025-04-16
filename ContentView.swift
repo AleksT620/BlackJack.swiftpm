@@ -13,7 +13,22 @@ struct ContentView: View {
                 Text("Blackjack")
                     .font(.system(size: 52, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
+                ZStack{
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundStyle(.white)
+                        .frame(width: 100, height: 50)
+                    NavigationLink("Play"){
+                        PlayPage()
+                    }
+                    .foregroundStyle(.black)
+                    .font(.system(size:35, weight: .bold, design: .rounded))
                     
+                }
+                
+                
+                
+                
+                
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color.white)
                             .frame(width: 140, height: 200)
