@@ -54,7 +54,8 @@ struct PlayPage: View {
         func checkForBust() {
             
             if playerScore > 21 {
-                resultMessage = "You busted! Score: \(playerScore)";             gameOver = true
+                resultMessage = "You busted! Score: \(playerScore)";
+                gameOver = true
             }
         }
         func startGame() {
