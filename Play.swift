@@ -5,6 +5,9 @@ struct PlayPage: View {
     @State var gameOver = false
     @State var resultMessage = ""
     @State private var playerCards: [Int] = []
+    @State var ComputerScore: Int = 0
+    @State var newComputerScore = 0
+    @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
     
     var playerScore: Int {
         playerCards.reduce(0, +)
@@ -12,7 +15,10 @@ struct PlayPage: View {
     
     var body: some View {
         VStack{
-                        Button("hit"){
+            Button("Stand"){
+                stand()
+            }
+                        Button("Hit"){
                             hit()
                         }
             if gameStarted && !gameOver {
@@ -45,6 +51,9 @@ struct PlayPage: View {
                 .foregroundColor(.white)
                 .cornerRadius(12)
             }
+            Text("Computer Score: \(ComputerScore)")
+                .font(.title)
+            
         }
         }
         func hit() {
@@ -58,6 +67,15 @@ struct PlayPage: View {
                 gameOver = true
             }
         }
+    
+    func stand(){
+        if ComputerScore <= 21 {
+            ComputerScore = ComputerScore + (cardNumbers.randomElement() ?? 0)
+        }
+    }
+    
+    
+    
         func startGame() {
             gameStarted = true
             gameOver = false
