@@ -4,10 +4,10 @@ struct PlayPage: View {
     @State var gameStarted = false
     @State var gameOver = false
     @State var resultMessage = ""
-    @State private var playerCards: [Int] = []
+    @State private var playerCards: [Card] = []
     
     var playerScore: Int {
-        playerCards.reduce(0, +)
+        playerCards.map(\.value).reduce(0, +)
     }
     
     var body: some View {
@@ -64,8 +64,8 @@ struct PlayPage: View {
             resultMessage = ""
             playerCards = [drawCard(), drawCard()]
         }
-        func drawCard() -> Int {
-            Int.random(in: 2...11)
+    func drawCard() -> Card {
+            Deck.cards.randomElement()!
         }
     }
 
