@@ -4,23 +4,30 @@ struct PlayPage: View {
     @State var gameStarted = false
     @State var gameOver = false
     @State var resultMessage = ""
-    @State private var playerCards: [Card] = []
-    
+    @State private var playerCards: [Int] = []
+
     var playerScore: Int {
-        playerCards.map(\.value).reduce(0, +)
+        playerCards.reduce(0, +)
     }
-    
+
     var body: some View {
-        VStack{
-                        Button("hit"){
-                            hit()
-                        }
+        VStack {
             if gameStarted && !gameOver {
                 VStack(spacing: 20) {
                     Text("Score: \(playerScore)")
                         .font(.title)
+                    
+                    Button("Hit") {
+                        hit()
+                    }
+                    .font(.title2)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
                 }
             }
+            
             if !gameStarted {
                 Button("Start Game") {
                     startGame()
@@ -31,6 +38,7 @@ struct PlayPage: View {
                 .foregroundColor(.white)
                 .cornerRadius(12)
             }
+            
             if gameOver {
                 Text(resultMessage)
                     .font(.title2)
@@ -41,31 +49,34 @@ struct PlayPage: View {
                 }
                 .font(.title2)
                 .padding()
-                .background(Color.purple)
+                .background(Color.red)
                 .foregroundColor(.white)
                 .cornerRadius(12)
             }
         }
-        }
-        func hit() {
-            playerCards.append(drawCard())
-            checkForBust()
-        }
-        func checkForBust() {
-            
-            if playerScore > 21 {
-                resultMessage = "You busted! Score: \(playerScore)";
-                gameOver = true
-            }
-        }
-        func startGame() {
-            gameStarted = true
-            gameOver = false
-            resultMessage = ""
-            playerCards = [drawCard(), drawCard()]
-        }
-    func drawCard() -> Card {
-            Deck.cards.randomElement()!
+    }
+
+    func hit() {
+        playerCards.append(drawCard())
+        checkForBust()
+    }
+
+    func checkForBust() {
+        if playerScore > 21 {
+            resultMessage = "You busted! Score: \(playerScore)"
+            gameOver = true
         }
     }
+
+    func startGame() {
+        gameStarted = true
+        gameOver = false
+        resultMessage = ""
+        playerCards = [drawCard(), drawCard()]
+    }
+
+    func drawCard() -> Int {
+        Int.random(in: 2...11)
+    }
+}
 
