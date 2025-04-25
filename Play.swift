@@ -15,7 +15,9 @@ struct PlayPage: View {
     
     var body: some View {
         VStack{
-           
+            Button("Stand"){
+                stand()
+            }
             if gameStarted && !gameOver {
                 VStack(spacing: 20) {
                     Text("Your Score: \(playerScore)")
