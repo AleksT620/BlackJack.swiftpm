@@ -26,6 +26,13 @@ struct PlayPage: View {
                     Text("Dealer Score: \(ComputerScore)")
                         .font(.system(size: 30, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
+                    
+                    HStack(spacing: -15) {
+                        ForEach(playerCards) { card in
+                            ShowCard(card: card)
+                        }
+                    }
+                    
                     ZStack{
                         Rectangle()
                             .frame(width: .infinity, height: 170, alignment: .bottom)
@@ -51,6 +58,7 @@ struct PlayPage: View {
                         
                     }
                 }
+               
             }
             
             if !gameStarted {
