@@ -22,7 +22,11 @@ struct PlayPage: View {
                 VStack(spacing: 20) {
                     Text("Score: \(playerScore)")
                         .font(.title)
-                    
+                    HStack(spacing: 10){
+                        ForEach(playerCards) { card in
+                            ShowCard(card: card)
+                        }
+                    }
                     Button("Hit") {
                         hit()
                     }
