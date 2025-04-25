@@ -20,21 +20,36 @@ struct PlayPage: View {
             }
             if gameStarted && !gameOver {
                 VStack(spacing: 20) {
-                    Text("Score: \(playerScore)")
-                        .font(.title)
-                    HStack(spacing: 10){
-                        ForEach(playerCards) { card in
-                            ShowCard(card: card)
+                    Text("Your Score: \(playerScore)")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("Dealer Score: \(ComputerScore)")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    ZStack{
+                        Rectangle()
+                            .frame(width: .infinity, height: 170, alignment: .bottom)
+                            .foregroundStyle(.brown)
+                        VStack{
+                            Button("Hit") {
+                                hit()
+                            }
+                            .font(.system(size: 25, weight: .bold, design: .rounded))
+                            .padding()
+                            .background(Color.yellow)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
+                            Button("Stand"){
+                                stand()
+                            }
+                            .font(.system(size: 25, weight: .bold, design: .rounded))
+                            .padding()
+                            .background(Color.yellow)
+                            .foregroundColor(.white)
+                            .cornerRadius(12)
                         }
+                        
                     }
-                    Button("Hit") {
-                        hit()
-                    }
-                    .font(.title2)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(12)
                 }
             }
             
@@ -42,10 +57,10 @@ struct PlayPage: View {
                 Button("Start Game") {
                     startGame()
                 }
-                .font(.title2)
+                .font(.system(size: 20, weight: .bold, design: .rounded))
                 .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
+                .background(Color.white)
+                .foregroundColor(.black)
                 .cornerRadius(12)
             }
             
@@ -63,10 +78,14 @@ struct PlayPage: View {
                 .foregroundColor(.white)
                 .cornerRadius(12)
             }
-            Text("Computer Score: \(ComputerScore)")
-                .font(.title)
+      
             
+            
+                
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.green)
+        .border(Color(red: 1.0, green: 0.2, blue: 0.2, opacity: 0.7), width: 15)
     }
     func hit() {
         playerCards.append(drawCard())
