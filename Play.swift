@@ -69,6 +69,8 @@ struct PlayPage: View {
                 
                 Button("Play Again") {
                     startGame()
+                    ComputerScore = 0
+        
                 }
                 .font(.title2)
                 .padding()
