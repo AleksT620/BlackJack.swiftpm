@@ -144,6 +144,7 @@ struct PlayPage: View {
            gameOver = false
            resultMessage = ""
            playerCards = [drawCard(), drawCard()]
+        ComputerScore = drawCard().value
        }
     
     func drawCard() -> Card {
