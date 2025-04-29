@@ -8,43 +8,46 @@ struct ShowCard: View {
     }
     
     var body: some View {
-        ZStack {
+        VStack {
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(card.label)
+                        .font(.headline)
+                        .bold()
+                    Text(card.suit)
+                        .font(.subheadline)
+                }
+                .foregroundStyle(isRed ? .red : .black)
+                Spacer()
+            }
+            Spacer()
+            
+            Text(card.suit)
+                .font(.largeTitle)
+                .foregroundStyle(isRed ? .red: .black)
+            
+            Spacer()
+            
+            HStack{
+                Spacer()
+                VStack(alignment: .trailing, spacing: 0){
+                    Text(card.label)
+                        .font(.headline)
+                        .bold()
+                    Text(card.suit)
+                        .font(.subheadline)
+                }
+                .rotationEffect(.degrees(180))
+                .foregroundStyle(isRed ? .red : .black)
+            }
+        }
+        .padding(8)
+        .frame(width: 105, height: 150)
+        .background(
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color.white)
-                .frame(width: 70, height: 100)
                 .shadow(radius: 4)
-            
-            VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(card.label)
-                            .font(.headline)
-                            .bold()
-                        Text(card.suit)
-                            .font(.subheadline)
-                    }
-                    .foregroundStyle(isRed ? .red: .black)
-                    Spacer()
-                }
-                Spacer()
-                Text(card.suit)
-                    .font(.largeTitle)
-                    .foregroundStyle(isRed ? .red : .black)
-                Spacer()
-                HStack {
-                    Spacer()
-                    VStack(alignment: .trailing){
-                        Text(card.label)
-                            .font(.headline)
-                            .bold()
-                        Text(card.suit)
-                            .font(.subheadline)
-                    }
-                    .rotationEffect(.degrees(180))
-                    .foregroundStyle(isRed ? .red : .black)
-                }
-            }
-            .padding(6)
-        }
+        )
+        
     }
 }
