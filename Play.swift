@@ -46,6 +46,7 @@ struct PlayPage: View {
                             .cornerRadius(12)
                             Button("Stand"){
                                 stand()
+                                checkForDealerBust()
                             }
                             .font(.system(size: 25, weight: .bold, design: .rounded))
                             .padding()
@@ -62,6 +63,7 @@ struct PlayPage: View {
             if !gameStarted {
                 Button("Start Game") {
                     startGame()
+//                    checkForDealerBust()
                 }
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .padding()
@@ -93,12 +95,35 @@ struct PlayPage: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.green)
-        .border(Color(red: 1.0, green: 0.2, blue: 0.2, opacity: 0.7), width: 15)
+        .border(Color(red: 1.0, green: 0.2, blue: 0.2, opacity: 0.0), width: 7)
+        
+        
+        
     }
+    
+//    func hitDealer() {
+//        playerCards.append(drawCard())
+//        checkForDealerBust()
+//    }
+
+    
+    
     func hit() {
         playerCards.append(drawCard())
         checkForBust()
     }
+    
+    func checkForDealerBust() {
+        
+        if ComputerScore > 21 {
+            resultMessage = "Dealer busted, You Win! Score: \(playerScore)";
+            gameOver = true
+        }
+    }
+    
+    
+    
+    
     func checkForBust() {
         
         if playerScore > 21 {
@@ -108,9 +133,10 @@ struct PlayPage: View {
     }
     
     func stand(){
-        if ComputerScore < 21 {
+        if ComputerScore < 30 {
             ComputerScore = ComputerScore + (cardNumbers.randomElement() ?? 0)
         }
+
     }
     
     func startGame() {

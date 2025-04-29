@@ -12,7 +12,7 @@ struct ContentView: View {
                     
                     Text("Blackjack")
                         .font(.system(size: 52, weight: .bold, design: .rounded))
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.white)
                        
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
