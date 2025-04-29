@@ -4,7 +4,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack {
-                Color.black
+                Color.green
                     .ignoresSafeArea()
                 
                 VStack(spacing: 150) {
@@ -12,7 +12,8 @@ struct ContentView: View {
                     
                     Text("Blackjack")
                         .font(.system(size: 52, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
+                        .foregroundColor(.yellow)
+                       
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundStyle(.white)
@@ -42,6 +43,7 @@ struct ContentView: View {
                             }
                                 .padding(14)
                                 .foregroundColor(.black)
+                                
                         )
                         .rotationEffect(.degrees(-15))
                         .offset(x: -40)
@@ -55,6 +57,7 @@ struct ContentView: View {
                                     Text("K")
                                         .font(.largeTitle)
                                         .bold()
+                                        .foregroundStyle(.red)
                                     Spacer()
                                 }
                                 Spacer()
@@ -62,6 +65,7 @@ struct ContentView: View {
                                     Spacer()
                                     Text("♣︎")
                                         .font(.title)
+                                        .foregroundStyle(.red)
                                 }
                             }
                                 .padding(14)
