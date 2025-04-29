@@ -10,7 +10,18 @@ struct PlayPage: View {
     @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
     
     var playerScore: Int {
-        playerCards.reduce(0) { $0 + $1.value }
+        var total = 0
+        var acecount = 0
+        for card in playerCards{
+            total += card.value
+            if card.label == "A" {
+                acecount += 1
+            }
+        }
+        if acecount > 0 && total + 10 <= 21 {
+            total += 10
+        }
+        return total
     }
     
     var body: some View {
@@ -79,7 +90,7 @@ struct PlayPage: View {
                 
                 Button("Play Again") {
                     startGame()
-                    ComputerScore = 0
+                
         
                 }
                 .font(.title2)
@@ -100,19 +111,10 @@ struct PlayPage: View {
         
         
     }
-    
-//    func hitDealer() {
-//        playerCards.append(drawCard())
-//        checkForDealerBust()
-//    }
-
-    
-    
     func hit() {
         playerCards.append(drawCard())
         checkForBust()
     }
-    
     func checkForDealerBust() {
         
         if ComputerScore > 21 {
@@ -120,8 +122,6 @@ struct PlayPage: View {
             gameOver = true
         }
     }
-    
-    
     
     
     func checkForBust() {
