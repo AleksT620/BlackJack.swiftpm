@@ -14,6 +14,10 @@ struct ContentView: View {
                         .font(.system(size: 52, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                        
+                   
+                    
+                    
+                    
                     ZStack{
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundStyle(.white)
