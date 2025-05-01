@@ -5,6 +5,7 @@ struct PlayPage: View {
     @State var gameOver = false
     @State var resultMessage = ""
     @State var playerCards: [Card] = []
+    @State var dealerCard: Card? = nil
     @State var ComputerScore: Int = 0
     @State var newComputerScore = 0
     @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
@@ -35,18 +36,23 @@ struct PlayPage: View {
                     Text("Dealer Score: \(ComputerScore)")
                         .font(.system(size: 30, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
-                    
+                    if let card = dealerCard {
+                        ShowCard(card: card)
+                            .offset(x:0 , y:-180)
+                    }
                     HStack(spacing: -15) {
                         ForEach(playerCards) { card in
                             ShowCard(card: card)
                         }
                     }
+                    .offset(x:0 , y:-180)
+
                     
                     ZStack{
                         Rectangle()
                             .frame(width: .infinity, height: 170, alignment: .bottom)
                             .foregroundStyle(.brown)
-                            .offset(x: 0, y: 200)
+                            .offset(x: 0, y: 100)
                         VStack{
                             Button("Hit") {
                                 hit()
@@ -57,7 +63,7 @@ struct PlayPage: View {
                             .background(Color.yellow)
                             .foregroundColor(.white)
                             .cornerRadius(12)
-                            .offset(x: 0, y: 190)
+                            .offset(x: 0, y: 100)
                             Button("Stand"){
                                 stand()
                                 checkForDealerBust()
@@ -67,7 +73,7 @@ struct PlayPage: View {
                             .background(Color.yellow)
                             .foregroundColor(.white)
                             .cornerRadius(12)
-                            .offset(x: 0, y: 190)
+                            .offset(x: 0, y: 100)
                         }
                         
                     }
@@ -148,7 +154,9 @@ struct PlayPage: View {
            gameOver = false
            resultMessage = ""
            playerCards = [drawCard(), drawCard()]
-        ComputerScore = drawCard().value
+        let drawnCard = drawCard()
+           dealerCard = drawnCard
+           ComputerScore = drawnCard.value
        }
     
     func drawCard() -> Card {
