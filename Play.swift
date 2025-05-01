@@ -146,6 +146,9 @@ struct PlayPage: View {
         if ComputerScore < 17 {
             ComputerScore += drawCard().value
         }
+        if ComputerScore < 17 {
+            ComputerScore += drawCard().value
+        }
         if ComputerScore > 21 {
             resultMessage = "Dealer Busted, You Win! Score: \(playerScore)"
         }else if ComputerScore > playerScore {
