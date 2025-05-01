@@ -48,6 +48,6 @@ struct ShowCard: View {
                 .fill(Color.white)
                 .shadow(radius: 4)
         )
-        .offset(x: 0, y: 190)
+        .offset(x: 0, y: 100)
     }
 }

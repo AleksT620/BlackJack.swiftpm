@@ -24,6 +24,7 @@ class AudioManager: ObservableObject {
             @State var gameOver = false
             @State var resultMessage = ""
             @State var playerCards: [Card] = []
+            @State var dealerCard: Card? = nil
             @State var ComputerScore: Int = 0
             @State var newComputerScore = 0
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
@@ -61,6 +62,11 @@ class AudioManager: ObservableObject {
                             Text("Dealer Score: \(ComputerScore)")
                                 .font(.system(size: 30, weight: .bold, design: .rounded))
                                 .foregroundStyle(.white)
+                            if let card = dealerCard {
+                                ShowCard(card: card)
+                                    .offset(x:0 , y: -100)
+                            }
+                               
                             
                             HStack(spacing: -15) {
                                 ForEach(playerCards) { card in
@@ -72,6 +78,7 @@ class AudioManager: ObservableObject {
                                 Rectangle()
                                     .frame(width: .infinity, height: 170, alignment: .bottom)
                                     .foregroundStyle(.brown)
+                                    .offset(x: 0,y: 100)
                                 VStack{
                                     Button("Hit") {
                                         hit()
@@ -81,6 +88,7 @@ class AudioManager: ObservableObject {
                                     .background(Color.yellow)
                                     .foregroundColor(.white)
                                     .cornerRadius(12)
+                                    .offset(x: 0,y: 100)
                                     Button("Stand"){
                                         stand()
                                         checkForDealerBust()
@@ -90,6 +98,7 @@ class AudioManager: ObservableObject {
                                     .background(Color.yellow)
                                     .foregroundColor(.white)
                                     .cornerRadius(12)
+                                    .offset(x: 0,y: 100)
                                 }
                                 
                             }
@@ -100,7 +109,7 @@ class AudioManager: ObservableObject {
                     if !gameStarted {
                         Button("Start Game") {
                             startGame()
-                            //                    checkForDealerBust()
+                         
                         }
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .padding()
@@ -171,9 +180,28 @@ class AudioManager: ObservableObject {
             }
             
             func stand(){
-                if ComputerScore < 30 {
-                    ComputerScore = ComputerScore + (cardNumbers.randomElement() ?? 0)
-                }
+                if ComputerScore < 17 {
+                        ComputerScore += drawCard().value
+                    }
+                    if ComputerScore < 17 {
+                        ComputerScore += drawCard().value
+                    }
+                    if ComputerScore < 17 {
+                        ComputerScore += drawCard().value
+                    }
+                    if ComputerScore < 17 {
+                        ComputerScore += drawCard().value
+                    }
+                    if ComputerScore > 21 {
+                        resultMessage = "Dealer busted, You Win! Score: \(playerScore)"
+                    } else if ComputerScore > playerScore {
+                        resultMessage = "Dealer wins with \(ComputerScore)"
+                    } else if ComputerScore == playerScore {
+                        resultMessage = "Push"
+                    } else {
+                        resultMessage = "You win! Dealer had \(ComputerScore)"
+                    }
+                gameOver = true
                 
             }
             
@@ -182,7 +210,9 @@ class AudioManager: ObservableObject {
                 gameOver = false
                 resultMessage = ""
                 playerCards = [drawCard(), drawCard()]
-                ComputerScore = drawCard().value
+                let drawnCard = drawCard()
+                dealerCard = drawnCard
+                ComputerScore = drawnCard.value
             }
             
             func drawCard() -> Card {
