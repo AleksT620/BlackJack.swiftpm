@@ -46,15 +46,18 @@ struct PlayPage: View {
                         Rectangle()
                             .frame(width: .infinity, height: 170, alignment: .bottom)
                             .foregroundStyle(.brown)
+                            .offset(x: 0, y: 200)
                         VStack{
                             Button("Hit") {
                                 hit()
+                                
                             }
                             .font(.system(size: 25, weight: .bold, design: .rounded))
                             .padding()
                             .background(Color.yellow)
                             .foregroundColor(.white)
                             .cornerRadius(12)
+                            .offset(x: 0, y: 190)
                             Button("Stand"){
                                 stand()
                                 checkForDealerBust()
@@ -64,6 +67,7 @@ struct PlayPage: View {
                             .background(Color.yellow)
                             .foregroundColor(.white)
                             .cornerRadius(12)
+                            .offset(x: 0, y: 190)
                         }
                         
                     }
