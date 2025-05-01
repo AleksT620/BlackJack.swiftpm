@@ -74,7 +74,7 @@ struct PlayPage: View {
             if !gameStarted {
                 Button("Start Game") {
                     startGame()
-//                    checkForDealerBust()
+               
                 }
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .padding()
@@ -133,10 +133,25 @@ struct PlayPage: View {
     }
     
     func stand(){
-        if ComputerScore < 30 {
-            ComputerScore = ComputerScore + (cardNumbers.randomElement() ?? 0)
+        if ComputerScore < 17 {
+            ComputerScore += drawCard().value
         }
-
+        if ComputerScore < 17 {
+            ComputerScore += drawCard().value
+        }
+        if ComputerScore < 17 {
+            ComputerScore += drawCard().value
+        }
+        if ComputerScore > 21 {
+            resultMessage = "Dealer Busted, You Win! Score: \(playerScore)"
+        }else if ComputerScore > playerScore {
+            resultMessage = "Dealer wins with \(ComputerScore)"
+        }else if ComputerScore == playerScore {
+            resultMessage = "Push"
+        }else {
+            resultMessage = "You Win! Dealer had \(ComputerScore)"
+        }
+        gameOver = true
     }
     
     func startGame() {
