@@ -28,7 +28,7 @@ class AudioManager: ObservableObject {
             @State var ComputerScore: Int = 0
             @State var newComputerScore = 0
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
-            @StateObject private var audioManager = AudioManager()
+       
             
             var playerScore: Int {
                 var total = 0
@@ -325,16 +325,7 @@ class AudioManager: ObservableObject {
                 
                 
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        
             
             
             func hit() {
@@ -392,6 +383,7 @@ class AudioManager: ObservableObject {
                 let drawnCard = drawCard()
                 dealerCard = drawnCard
                 ComputerScore = drawnCard.value
+                
             }
             
             func drawCard() -> Card {
