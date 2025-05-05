@@ -194,16 +194,21 @@ class AudioManager: ObservableObject {
                             }
                         }
                         .border(Color(red: 0.0, green: 0.6, blue: 0.2, opacity: 0.5), width: 4)
-
-                        Button("Start Game") {
-                            startGame()
-                         
-                        }
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(12)
+                        Button(action: {
+                                   withAnimation(.easeInOut(duration: 0.5)) {
+                                       startGame()
+                                   }
+                               }) {
+                                   Text("Play Game")
+                                       .font(.system(size: 24, weight: .bold, design: .rounded))
+                                       .padding()
+                                       .frame(width: 220)
+                                       .background(Color.yellow)
+                                       .foregroundColor(.black)
+                                       .cornerRadius(16)
+                                       .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
+                                       .scaleEffect(gameStarted ? 1.0 : 1.1)
+                               }
                         VStack{
                             HStack{
                                 ZStack{
