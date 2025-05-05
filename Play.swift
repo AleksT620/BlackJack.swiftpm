@@ -103,15 +103,28 @@ class AudioManager: ObservableObject {
                     }
                     
                     if !gameStarted {
-                        Button("Start Game") {
-                            startGame()
-                         
+                        VStack(spacing: 20) {
+                            Text("Blackjack")
+                                .font(.system(size: 36, weight: .heavy, design: .rounded))
+                                .foregroundColor(.white)
+                                .shadow(radius: 4)
+                            
+                            Button(action: {
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    startGame()
+                                }
+                            }) {
+                                Text("Play Game")
+                                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                                    .padding()
+                                    .frame(width: 220)
+                                    .background(Color.yellow)
+                                    .foregroundColor(.black)
+                                    .cornerRadius(16)
+                                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
+                                    .scaleEffect(gameStarted ? 1.0 : 1.1)
+                            }
                         }
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .padding()
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(12)
                     }
                     
                     if gameOver {
@@ -142,16 +155,7 @@ class AudioManager: ObservableObject {
                 
                 
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+        
             
             
             func hit() {
@@ -209,6 +213,7 @@ class AudioManager: ObservableObject {
                 let drawnCard = drawCard()
                 dealerCard = drawnCard
                 ComputerScore = drawnCard.value
+                
             }
             
             func drawCard() -> Card {
