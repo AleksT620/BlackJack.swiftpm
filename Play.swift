@@ -28,7 +28,9 @@ class AudioManager: ObservableObject {
             @State var ComputerScore: Int = 0
             @State var newComputerScore = 0
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
-       
+            @State var playerCredits: Int = 1000
+            @State var currentBet: Int = 100
+
             
             var playerScore: Int {
                 var total = 0
@@ -47,7 +49,20 @@ class AudioManager: ObservableObject {
             
             var body: some View {
                 VStack{
-                 
+                    VStack(spacing: 10) {
+                        HStack {
+                            Text("Credits: \(playerCredits)")
+                                .font(.title3)
+                                .foregroundStyle(.white)
+                                .padding(.leading)
+                            Spacer()
+                            Text("Bet: \(currentBet)")
+                                .font(.title3)
+                                .foregroundStyle(.white)
+                                .padding(.trailing)
+                        }
+                        .padding(.horizontal)
+                    }
 //                    Button("Play Sound"){
 //                        audioManager.playSound(named: "WA WA WA SOUND EFFECT TRENDING SOUND EFFECT NO COPYRIGHT")
 //                    }
@@ -350,6 +365,7 @@ class AudioManager: ObservableObject {
                 
                 if playerScore > 21 {
                     resultMessage = "You busted! Score: \(playerScore)";
+                    playerCredits -= currentBet
                     gameOver = true
                 }
             }
@@ -369,12 +385,15 @@ class AudioManager: ObservableObject {
                     }
                     if ComputerScore > 21 {
                         resultMessage = "Dealer busted, You Win! Score: \(playerScore)"
+                        playerCredits += currentBet
                     } else if ComputerScore > playerScore {
                         resultMessage = "Dealer wins with \(ComputerScore)"
+                        playerCredits -= currentBet
                     } else if ComputerScore == playerScore {
                         resultMessage = "Push"
                     } else {
                         resultMessage = "You win! Dealer had \(ComputerScore)"
+                        playerCredits += currentBet
                     }
                 gameOver = true
                 
