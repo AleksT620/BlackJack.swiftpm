@@ -51,7 +51,7 @@ class AudioManager: ObservableObject {
 //                    Button("Play Sound"){
 //                        audioManager.playSound(named: "WA WA WA SOUND EFFECT TRENDING SOUND EFFECT NO COPYRIGHT")
 //                    }
-//                    
+//
                     
                     
                     if gameStarted && !gameOver {
@@ -73,40 +73,128 @@ class AudioManager: ObservableObject {
                                     ShowCard(card: card)
                                 }
                             }
-                            
-                            ZStack{
-                                Rectangle()
-                                    .frame(width: .infinity, height: 170, alignment: .bottom)
-                                    .foregroundStyle(.brown)
-                                    .offset(x: 0,y: 100)
-                                VStack{
-                                    Button("Hit") {
-                                        hit()
+                           
+                                ZStack{
+                                    Rectangle()
+                                        .frame(width: .infinity, height: 170, alignment: .bottom)
+                                        .foregroundStyle(.brown)
+                                        .offset(x: 0,y: 100)
+                                    VStack{
+                                        Button("Hit") {
+                                            hit()
+                                        }
+                                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                                        .padding()
+                                        .background(Color.yellow)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(12)
+                                        .offset(x: 0,y: 100)
+                                        Button("Stand"){
+                                            stand()
+                                            checkForDealerBust()
+                                        }
+                                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                                        .padding()
+                                        .background(Color.yellow)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(12)
+                                        .offset(x: 0,y: 100)
                                     }
-                                    .font(.system(size: 25, weight: .bold, design: .rounded))
-                                    .padding()
-                                    .background(Color.yellow)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(12)
-                                    .offset(x: 0,y: 100)
-                                    Button("Stand"){
-                                        stand()
-                                        checkForDealerBust()
-                                    }
-                                    .font(.system(size: 25, weight: .bold, design: .rounded))
-                                    .padding()
-                                    .background(Color.yellow)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(12)
-                                    .offset(x: 0,y: 100)
-                                }
+                                    
+                                
+                                
                                 
                             }
+                            
                         }
                         
                     }
                     
                     if !gameStarted {
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.white)
+                                    .frame(width: 100, height: 145)
+                                    .shadow(radius: 4)
+                                Text("3")
+                                    .frame(width: 70, height: 140, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .frame(width: 70, height: 100, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .font(.largeTitle)
+                                    .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                            }
+                            .rotationEffect(Angle(degrees: 9))
+                            .padding(.vertical, 20)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.white)
+                                    .frame(width: 100, height: 145)
+                                    .shadow(radius: 4)
+                                Text("2")
+                                    .frame(width: 70, height: 140, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .frame(width: 70, height: 100, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .font(.largeTitle)
+                                    .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                            }
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.white)
+                                    .frame(width: 100, height: 145)
+                                    .shadow(radius: 4)
+                                Text("4")
+                                    .frame(width: 70, height: 140, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .frame(width: 70, height: 100, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                                Text("♣︎")
+                                    .font(.largeTitle)
+                                    .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                            }
+                            .rotationEffect(Angle(degrees: -9))
+                            .padding(.vertical, 20)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundStyle(.white)
+                                    .frame(width: 100, height: 145)
+                                    .shadow(radius: 4)
+                                Text("4")
+                                    .frame(width: 70, height: 140, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .frame(width: 70, height: 100, alignment: .topTrailing)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                                Text("♠︎")
+                                    .font(.largeTitle)
+                                    .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                    .foregroundStyle(.black)
+                            }
+                        }
+                        .border(Color(red: 0.0, green: 0.6, blue: 0.2, opacity: 0.5), width: 4)
+
                         Button("Start Game") {
                             startGame()
                          
@@ -116,6 +204,97 @@ class AudioManager: ObservableObject {
                         .background(Color.white)
                         .foregroundColor(.black)
                         .cornerRadius(12)
+                        VStack{
+                            HStack{
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundStyle(.white)
+                                        .frame(width: 100, height: 145)
+                                        .shadow(radius: 4)
+                                    Text("8")
+                                        .frame(width: 70, height: 140, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .frame(width: 70, height: 100, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .font(.largeTitle)
+                                        .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                }
+                                .rotationEffect(Angle(degrees: -9))
+                                .padding(.vertical, 20)
+                                
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundStyle(.white)
+                                        .frame(width: 100, height: 145)
+                                        .shadow(radius: 4)
+                                    Text("3")
+                                        .frame(width: 70, height: 140, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .frame(width: 70, height: 100, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .font(.largeTitle)
+                                        .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                }
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundStyle(.white)
+                                        .frame(width: 100, height: 145)
+                                        .shadow(radius: 4)
+                                    Text("9")
+                                        .frame(width: 70, height: 140, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .frame(width: 70, height: 100, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                    Text("♦︎")
+                                        .font(.largeTitle)
+                                        .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                }
+                                .rotationEffect(Angle(degrees: 9))
+                                .padding(.vertical, 20)
+                                
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundStyle(.white)
+                                        .frame(width: 100, height: 145)
+                                        .shadow(radius: 4)
+                                    Text("6")
+                                        .frame(width: 70, height: 140, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .frame(width: 70, height: 100, alignment: .topTrailing)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .frame(width: 70, height: 100, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                    Text("♥︎")
+                                        .font(.largeTitle)
+                                        .frame(width: 30, height: 40, alignment: .bottomLeading)
+                                        .foregroundStyle(.red)
+                                }
+                                
+                            }
+                        
+                            
+                        }
+                        .border(Color(red: 0.0, green: 0.6, blue: 0.2, opacity: 0.5), width: 4)
+                        
                     }
                     
                     if gameOver {
