@@ -28,7 +28,7 @@ class AudioManager: ObservableObject {
             @State var ComputerScore: Int = 0
             @State var newComputerScore = 0
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
-            @StateObject private var audioManager = AudioManager()
+       
             
             var playerScore: Int {
                 var total = 0
@@ -47,12 +47,7 @@ class AudioManager: ObservableObject {
             
             var body: some View {
                 VStack{
-                 
-//                    Button("Play Sound"){
-//                        audioManager.playSound(named: "WA WA WA SOUND EFFECT TRENDING SOUND EFFECT NO COPYRIGHT")
-//                    }
-//                    
-                    
+           
                     
                     if gameStarted && !gameOver {
                         VStack(spacing: 20) {
@@ -73,7 +68,8 @@ class AudioManager: ObservableObject {
                                     ShowCard(card: card)
                                 }
                             }
-                            
+                        
+                    
                             ZStack{
                                 Rectangle()
                                     .frame(width: .infinity, height: 170, alignment: .bottom)
