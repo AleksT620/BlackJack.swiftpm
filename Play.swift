@@ -55,6 +55,11 @@ class AudioManager: ObservableObject {
                                 .font(.title3)
                                 .foregroundStyle(.white)
                                 .padding(.leading)
+                            
+                            Stepper("Value", value: $currentBet, in: 0...1000, step: 10)
+                                .frame(width: 200, height: 10, alignment: .top)
+                                .foregroundStyle(.white)
+                                .font(.headline)
                             Spacer()
                             Text("Bet: \(currentBet)")
                                 .font(.title3)
@@ -63,10 +68,13 @@ class AudioManager: ObservableObject {
                         }
                         .padding(.horizontal)
                     }
-//                    Button("Play Sound"){
-//                        audioManager.playSound(named: "WA WA WA SOUND EFFECT TRENDING SOUND EFFECT NO COPYRIGHT")
-//                    }
-//
+                    .frame(width: .infinity, height: 50, alignment: .top)
+                  
+              
+                    
+                        
+                    
+                    
                     
                     if gameStarted && !gameOver {
                         VStack(spacing: 20) {
