@@ -68,7 +68,6 @@ class AudioManager: ObservableObject {
 //                    }
 //
                     
-                    
                     if gameStarted && !gameOver {
                         VStack(spacing: 20) {
                             Text("Your Score: \(playerScore)")

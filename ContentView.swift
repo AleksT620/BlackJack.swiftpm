@@ -2,84 +2,133 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ZStack {
-                Color.green
-                    .ignoresSafeArea()
+                LinearGradient(
+                    gradient: Gradient(colors: [.black.opacity(0.4), .clear, .black.opacity(0.4)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                    )
+                .ignoresSafeArea()
                 
-                VStack(spacing: 150) {
-                    Spacer().frame(height: 100)
-                    
-                    Text("Blackjack")
-                        .font(.system(size: 52, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                       
-                   
-                    
-                    
-                    
+                VStack(spacing: 40) {
+                    Spacer()
+                        .frame(height: 60)
+                    Text("♠︎ Blackjack ♣︎")
+                        .font(.system(size: 50, weight: .black, design: .rounded))
+                        .foregroundStyle(.white)
+                        .shadow(color: .yellow.opacity(0.6), radius: 8)
                     ZStack{
-                        RoundedRectangle(cornerRadius: 15)
-                            .foregroundStyle(.white)
-                            .frame(width: 100, height: 50)
-                            .padding(.vertical, -95)
-                        NavigationLink("Play"){
-                            PlayPage()
-                        }
-                        .padding(.vertical, -90)
-                        .foregroundStyle(.black)
-                        .font(.system(size:35, weight: .bold, design: .rounded))
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.white)
+                            .frame(width: 120, height: 180)
+                            .shadow(radius: 5)
+                            .overlay(
+                                VStack{
+                                    HStack{
+                                        Text("A")
+                                            .font(.title)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    Spacer()
+                                    Text("♠︎")
+                                        .font(.system(size: 44))
+                                    Spacer()
+                                    HStack{
+                                        Spacer()
+                                        Text("A")
+                                            .font(.title)
+                                            .bold()
+                                    }
+                                }
+                                    .padding(10)
+                                    .foregroundStyle(.black)
+                            )
+                            .rotationEffect(.degrees(-20))
+                            .offset(x: -60)
                         
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.white)
+                            .frame(width: 120, height: 180)
+                            .shadow(radius: 5)
+                            .overlay(
+                                VStack{
+                                    HStack{
+                                        Text("K")
+                                            .font(.title)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    Spacer()
+                                    Text("♥︎")
+                                        .font(.system(size: 44))
+                                    Spacer()
+                                    HStack{
+                                        Spacer()
+                                        Text("K")
+                                            .font(.title)
+                                            .bold()
+                                    }
+                                }
+                                    .padding(10)
+                                    .foregroundStyle(.red)
+                            )
+                            .rotationEffect(.degrees(-5))
+                            .offset(x: -15)
+                        
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.white)
+                            .frame(width: 120, height: 180)
+                            .shadow(radius: 5)
+                            .overlay {
+                                VStack{
+                                    HStack{
+                                        Text("Q")
+                                            .font(.title)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    Spacer()
+                                    Text("♦︎")
+                                        .font(.system(size: 44))
+                                    Spacer()
+                                    HStack{
+                                        Spacer()
+                                        Text("Q")
+                                            .font(.title)
+                                            .bold()
+                                    }
+                                }
+                                .padding(10)
+                                .foregroundStyle(.red)
+                            }
+                            .rotationEffect(.degrees(10))
+                            .offset(x: 35)
                     }
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white)
-                        .frame(width: 140, height: 200)
-                        .shadow(radius: 10)
-                        .overlay(
-                            VStack {
-                                HStack {
-                                    Text("A")
-                                        .font(.largeTitle)
-                                        .bold()
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                                .padding(14)
-                                .foregroundColor(.black)
-                                
-                        )
-                        .rotationEffect(.degrees(-15))
-                        .offset(x: -40)
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white)
-                        .frame(width: 140, height: 200)
-                        .shadow(radius: 10)
-                        .overlay(
-                            VStack {
-                                HStack {
-                                    Text("K")
-                                        .font(.largeTitle)
-                                        .bold()
-                                        .foregroundStyle(.red)
-                                    Spacer()
-                                }
-                                Spacer()
-                                HStack {
-                                    Spacer()
-                                    Text("♣︎")
-                                        .font(.title)
-                                        .foregroundStyle(.red)
-                                }
-                            }
-                                .padding(14)
-                                .foregroundColor(.black)
-                        )
-                        .rotationEffect(.degrees(15))
-                        .offset(x: 40,y: -350)
+                    .padding(.bottom, 30)
+                    
+                    NavigationLink(destination: PlayPage()) {
+                        Text("Play")
+                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 180)
+                            .background(
+                                RadialGradient(gradient: Gradient(colors: [Color.red, Color.black]),
+                                               center: .center,
+                                              startRadius: 5,
+                                              endRadius: 100)
+                            )
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .padding()
             }
         }
     }
 }
+
