@@ -56,7 +56,7 @@ class AudioManager: ObservableObject {
                                 .foregroundStyle(.white)
                                 .padding(.leading)
                             
-                            Stepper("Change bet", value: $currentBet)
+                            Stepper("Value", value: $currentBet, in: 0...1000, step: 10)
                                 .frame(width: 200, height: 10, alignment: .top)
                                 .foregroundStyle(.white)
                                 .font(.headline)
