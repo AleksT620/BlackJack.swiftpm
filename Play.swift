@@ -56,7 +56,7 @@ class AudioManager: ObservableObject {
                                 .foregroundStyle(.white)
                                 .padding(.leading)
                             
-                            Stepper("Value", value: $currentBet, in: 0...1000, step: 10)
+                            Stepper("Change Bet:", value: $currentBet, in: 0...1000, step: 10)
                                 .frame(width: 200, height: 10, alignment: .top)
                                 .foregroundStyle(.white)
                                 .font(.headline)
@@ -346,7 +346,13 @@ class AudioManager: ObservableObject {
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.green)
+                .background(
+                    RadialGradient(gradient: Gradient(colors: [Color.black, Color.green]),
+                                   center: .center,
+                                  startRadius: 700,
+                                  endRadius: 260)
+                )
+
                 .border(Color(red: 1.0, green: 0.2, blue: 0.2, opacity: 0.0), width: 7)
                 
                 
