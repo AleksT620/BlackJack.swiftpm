@@ -104,7 +104,7 @@ class AudioManager: ObservableObject {
                                         .frame(width: .infinity, height: 170, alignment: .bottom)
                                         .foregroundStyle(.brown)
                                         .offset(x: 0,y: 100)
-                                    VStack{
+                                    HStack{
                                         Button("Hit") {
                                             hit()
                                         }
@@ -124,6 +124,15 @@ class AudioManager: ObservableObject {
                                         .foregroundColor(.white)
                                         .cornerRadius(12)
                                         .offset(x: 0,y: 100)
+                                        Button("Double") {
+                                            doubleDown()
+                                        }
+                                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                                        .padding()
+                                        .background(Color.orange)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(12)
+                                        .offset(x: 0, y: 100)
                                     }
                                     
                                 
@@ -364,7 +373,22 @@ class AudioManager: ObservableObject {
             }
         
             
-            
+            func doubleDown() {
+                if playerCredits >= currentBet {
+                    playerCredits -= currentBet
+                    currentBet *= 2
+                    playerCards.append(drawCard())
+                    
+                    if playerScore > 21 {
+                        resultMessage = "You busted after doubling! Score: \(playerScore)"
+                        gameOver = true
+                    } else {
+                        stand() // Auto-stand after drawing one card
+                    }
+                } else {
+                    resultMessage = "Not enough credits to double down!"
+                }
+            }
             func hit() {
                 playerCards.append(drawCard())
                 checkForBust()
