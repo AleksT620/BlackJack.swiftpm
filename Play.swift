@@ -347,11 +347,13 @@ class AudioManager: ObservableObject {
                             
                             
                         }
-                        .font(.title2)
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
                         .padding()
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(12)
+                        .frame(width: 142)
+                        .background(Color.yellow)
+                        .foregroundColor(.black)
+                        .cornerRadius(16)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
                     }
                     
                     
@@ -439,6 +441,7 @@ class AudioManager: ObservableObject {
                 gameOver = true
                 
             }
+            
             
             func startGame() {
                 gameStarted = true
