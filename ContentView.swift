@@ -127,6 +127,11 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding()
+                Text("Play To Win, Stay For The Thrill!")
+                    .font(.system(size: 25, weight: .black, design: .rounded))
+                    .foregroundStyle(.white)
+                    .shadow(color: .yellow.opacity(0.6), radius: 8)
+                    .offset(x:0, y:200)
             }
         }
     }
