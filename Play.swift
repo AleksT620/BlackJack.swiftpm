@@ -55,11 +55,13 @@ class AudioManager: ObservableObject {
                                 .font(.title3)
                                 .foregroundStyle(.white)
                                 .padding(.leading)
-                            
-                            Stepper("Change Bet:", value: $currentBet, in: 0...1000, step: 10)
-                                .frame(width: 200, height: 10, alignment: .top)
-                                .foregroundStyle(.white)
-                                .font(.headline)
+                            if gameStarted && gameOver{
+                                Text(" ")
+                            }else{
+                                Stepper("Change Bet:", value: $currentBet, in: 0...1000, step: 10)
+                                    .frame(width: 200, height: 10, alignment: .top)
+                                    .foregroundStyle(.white)
+                                .font(.headline)}
                             Spacer()
                             Text("Bet: \(currentBet)")
                                 .font(.title3)
@@ -84,6 +86,7 @@ class AudioManager: ObservableObject {
                             Text("Dealer Score: \(ComputerScore)")
                                 .font(.system(size: 30, weight: .bold, design: .rounded))
                                 .foregroundStyle(.white)
+                          
                             if let card = dealerCard {
                                 ShowCard(card: card)
                                     .offset(x:0 , y: -100)
@@ -134,6 +137,7 @@ class AudioManager: ObservableObject {
                     
                     if !gameStarted {
                         HStack{
+                            
                             ZStack{
                                 RoundedRectangle(cornerRadius: 15)
                                     .foregroundStyle(.white)
