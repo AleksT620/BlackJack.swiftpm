@@ -388,7 +388,7 @@ class AudioManager: ObservableObject {
                         resultMessage = "You busted after doubling! Score: \(playerScore)"
                         gameOver = true
                     } else {
-                        stand() // Auto-stand after drawing one card
+                        stand()
                     }
                 } else {
                     resultMessage = "Not enough credits to double down!"
