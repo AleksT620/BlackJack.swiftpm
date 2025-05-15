@@ -132,6 +132,24 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     .shadow(color: .yellow.opacity(0.6), radius: 8)
                     .offset(x:0, y:200)
+                Image("pokerchip")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .shadow(radius: 10)
+               
+                NavigationLink(destination: HowToPlayPage()) {
+                    Text("How to Play")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
+                        .background(Color.black.opacity(0.7))
+                        .clipShape(Capsule())
+                        .overlay(Capsule().stroke(Color.white, lineWidth: 2))
+                        .shadow(radius: 5)
+                        
+                }
+                .offset(x:0, y:250)
             }
         }
     }
