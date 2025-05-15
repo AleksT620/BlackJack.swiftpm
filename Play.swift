@@ -28,7 +28,7 @@ class AudioManager: ObservableObject {
             @State var ComputerScore: Int = 0
             @State var newComputerScore = 0
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
-            @State var playerCredits: Int = 1000
+            @State var playerCredits: Int = 3000
             @State var currentBet: Int = 100
 
             

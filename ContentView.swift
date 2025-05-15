@@ -75,7 +75,7 @@ struct ContentView: View {
                                     .foregroundStyle(.red)
                             )
                             .rotationEffect(.degrees(-5))
-                            .offset(x: -15)
+                            .offset(x: -15, y: -9)
                         
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color.white)
@@ -104,7 +104,7 @@ struct ContentView: View {
                                 .foregroundStyle(.red)
                             }
                             .rotationEffect(.degrees(10))
-                            .offset(x: 35)
+                            .offset(x: 35, y: -5)
                     }
                     .padding(.bottom, 30)
                     
