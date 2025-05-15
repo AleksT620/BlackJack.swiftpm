@@ -102,7 +102,11 @@ class AudioManager: ObservableObject {
                                 ZStack{
                                     Rectangle()
                                         .frame(width: .infinity, height: 170, alignment: .bottom)
-                                        .foregroundStyle(.brown)
+                                        .foregroundStyle(
+                                            RadialGradient(gradient: Gradient(colors: [Color.black, Color.brown]),
+                                                           center: .center,
+                                                          startRadius:500,endRadius: 135)
+                                        )
                                         .offset(x: 0,y: 100)
                                     HStack{
                                         Button("Hit") {
@@ -110,7 +114,7 @@ class AudioManager: ObservableObject {
                                         }
                                         .font(.system(size: 25, weight: .bold, design: .rounded))
                                         .padding()
-                                        .background(Color.yellow)
+                                        .background(Color(red: 0.9, green: 0.7, blue: 0.0, opacity: 1.0))
                                         .foregroundColor(.white)
                                         .cornerRadius(12)
                                         .offset(x: 0,y: 100)
@@ -120,7 +124,7 @@ class AudioManager: ObservableObject {
                                         }
                                         .font(.system(size: 25, weight: .bold, design: .rounded))
                                         .padding()
-                                        .background(Color.yellow)
+                                        .background(Color(red: 0.9, green: 0.7, blue: 0.0, opacity: 1.0))
                                         .foregroundColor(.white)
                                         .cornerRadius(12)
                                         .offset(x: 0,y: 100)
@@ -129,7 +133,7 @@ class AudioManager: ObservableObject {
                                         }
                                         .font(.system(size: 25, weight: .bold, design: .rounded))
                                         .padding()
-                                        .background(Color.orange)
+                                        .background(Color(red: 0.9, green: 0.3, blue: 0.0, opacity: 1.0))
                                         .foregroundColor(.white)
                                         .cornerRadius(12)
                                         .offset(x: 0, y: 100)
