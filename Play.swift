@@ -331,9 +331,19 @@ class AudioManager: ObservableObject {
                                         .frame(width: 30, height: 40, alignment: .bottomLeading)
                                         .foregroundStyle(.red)
                                 }
+                               
                                 
                             }
-                        
+                            NavigationLink(destination: NewEnviornment()) {
+                                Text("Use Your Credits!") .font(.system(size: 20, weight: .bold, design: .rounded))
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(Color.black.opacity(0.7))
+                                    .clipShape(Capsule())
+                                    .overlay(Capsule().stroke(Color.white, lineWidth: 2))
+                                    .shadow(radius: 5)
+                                    }
                             
                         }
                         .border(Color(red: 0.0, green: 0.6, blue: 0.2, opacity: 0.5), width: 4)
