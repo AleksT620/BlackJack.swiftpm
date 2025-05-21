@@ -55,7 +55,7 @@ class AudioManager: ObservableObject {
                                 .font(.title3)
                                 .foregroundStyle(.white)
                                 .padding(.leading)
-                            Stepper("Change Bet:", value: $currentBet, in: 0...5000, step: 10)
+                            Stepper("Change Bet:", value: $currentBet, in: 0...playerCredits, step: 10)
                                 .frame(width: 200, height: 10, alignment: .top)
                                 .foregroundStyle(.white)
                                 .font(.headline)
@@ -94,8 +94,9 @@ class AudioManager: ObservableObject {
                             
                             HStack(spacing: -15) {
                                 ForEach(playerCards) { card in
-                                    ShowCard(card: card)
-                                }
+                                       AnimatedCard(card: card)
+                                           .transition(.move(edge: .top).combined(with: .opacity))
+                                   }
                             }
                            
                                 ZStack{
