@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -127,6 +128,7 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding()
+                
                 Text("Play To Win, Stay For The Thrill!")
                     .font(.system(size: 25, weight: .black, design: .rounded))
                     .foregroundStyle(.white)
