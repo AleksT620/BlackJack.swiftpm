@@ -30,6 +30,7 @@ class AudioManager: ObservableObject {
             @State var cardNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,11]
             @State var playerCredits: Int = 3000
             @State var currentBet: Int = 100
+            @State var CEnviornment = Color.green
 
             
             var playerScore: Int {
@@ -335,7 +336,7 @@ class AudioManager: ObservableObject {
                                
                                 
                             }
-                            NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits)) {
+                            NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits, CEnviornment: $CEnviornment)) {
                                 Text("Use Your Credits!") .font(.system(size: 20, weight: .bold, design: .rounded))
                                     .foregroundColor(.white)
                                     .padding(.vertical, 10)
@@ -368,7 +369,7 @@ class AudioManager: ObservableObject {
                         .foregroundColor(.black)
                         .cornerRadius(16)
                         .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
-                        NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits)) {
+                        NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits, CEnviornment: $CEnviornment)) {
                             Text("Use Your Credits!") .font(.system(size: 20, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                                 .padding(.vertical, 10)
@@ -387,7 +388,7 @@ class AudioManager: ObservableObject {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(
-                    RadialGradient(gradient: Gradient(colors: [Color.black, Color.green]),
+                    RadialGradient(gradient: Gradient(colors: [Color.black, CEnviornment]),
                                    center: .center,
                                   startRadius: 700,
                                   endRadius: 260)
