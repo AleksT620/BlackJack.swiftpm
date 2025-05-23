@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct NewEnviornment: View {
+    @Binding var playerCredits: Int
     var body: some View{
+        
         VStack{
             HStack{
                 VStack{

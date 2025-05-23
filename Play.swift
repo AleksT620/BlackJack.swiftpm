@@ -335,7 +335,7 @@ class AudioManager: ObservableObject {
                                
                                 
                             }
-                            NavigationLink(destination: NewEnviornment()) {
+                            NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits)) {
                                 Text("Use Your Credits!") .font(.system(size: 20, weight: .bold, design: .rounded))
                                     .foregroundColor(.white)
                                     .padding(.vertical, 10)
@@ -368,6 +368,17 @@ class AudioManager: ObservableObject {
                         .foregroundColor(.black)
                         .cornerRadius(16)
                         .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 4)
+                        NavigationLink(destination: NewEnviornment(playerCredits: $playerCredits)) {
+                            Text("Use Your Credits!") .font(.system(size: 20, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 20)
+                                .background(Color.black.opacity(0.7))
+                                .clipShape(Capsule())
+                                .overlay(Capsule().stroke(Color.white, lineWidth: 2))
+                                .shadow(radius: 5)
+                                .frame(width: .infinity, height: 60, alignment: .bottom)
+                                }
                     }
                     
                     
