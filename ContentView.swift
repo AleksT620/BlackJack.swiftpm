@@ -125,7 +125,9 @@ struct ContentView: View {
                             .overlay(Circle().stroke(Color.white, lineWidth: 4))
                             .shadow(radius: 10)
                     }
+                    .offset(x:0,y: -50)
                     Spacer()
+                       
                 }
                 .padding()
                 
@@ -151,7 +153,7 @@ struct ContentView: View {
                         .shadow(radius: 5)
                         
                 }
-                .offset(x:0, y:250)
+                .offset(x:0, y:300)
             }
         }
     }
