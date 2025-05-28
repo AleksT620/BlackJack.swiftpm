@@ -237,6 +237,7 @@ class AudioManager: ObservableObject {
                         Button(action: {
                                    withAnimation(.easeInOut(duration: 0.5)) {
                                        startGame()
+                                       checkForBlackjack()
                                    }
                                }) {
                                    Text("Play Game")
@@ -359,7 +360,7 @@ class AudioManager: ObservableObject {
                         
                         Button("Play Again") {
                             startGame()
-                            
+                            checkForBlackjack()
                             
                         }
                         .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -420,6 +421,7 @@ class AudioManager: ObservableObject {
             func hit() {
                 playerCards.append(drawCard())
                 checkForBust()
+                checkForBlackjack()
             }
             func checkForDealerBust() {
                 
@@ -429,7 +431,13 @@ class AudioManager: ObservableObject {
                 }
             }
             
-            
+            func checkForBlackjack() {
+                if playerScore == 21 {
+                    resultMessage = "Blackjack! You Win!"
+                    playerCredits += Int(Double(currentBet) * 2.5)
+                    gameOver = true
+                }
+            }
             func checkForBust() {
                 
                 if playerScore > 21 {
