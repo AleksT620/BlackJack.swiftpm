@@ -149,9 +149,14 @@ class AudioManager: ObservableObject {
                         
                     }
                     
+                  
+                    
+                    
+                    
+                    
                     if !gameStarted {
                         HStack{
-                            
+                           
                             ZStack{
                                 RoundedRectangle(cornerRadius: 15)
                                     .foregroundStyle(.white)
@@ -354,6 +359,7 @@ class AudioManager: ObservableObject {
                     }
                     
                     if gameOver {
+                      
                         Text(resultMessage)
                             .font(.title2)
                             .foregroundColor(.red)
@@ -464,12 +470,12 @@ class AudioManager: ObservableObject {
                         resultMessage = "Dealer busted, You Win! Score: \(playerScore)"
                         playerCredits += currentBet
                     } else if ComputerScore > playerScore {
-                        resultMessage = "Dealer wins with \(ComputerScore)"
+                        resultMessage = "Dealer wins with \(ComputerScore) Better luck next time!"
                         playerCredits -= currentBet
                     } else if ComputerScore == playerScore {
                         resultMessage = "Push"
                     } else {
-                        resultMessage = "You win! Dealer had \(ComputerScore)"
+                        resultMessage = "You win! Dealer had \(ComputerScore) You got lucky!"
                         playerCredits += currentBet
                     }
                 gameOver = true
