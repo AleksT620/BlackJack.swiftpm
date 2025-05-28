@@ -462,12 +462,12 @@ class AudioManager: ObservableObject {
                         resultMessage = "Dealer busted, You Win! Score: \(playerScore)"
                         playerCredits += currentBet
                     } else if ComputerScore > playerScore {
-                        resultMessage = "Dealer wins with \(ComputerScore)"
+                        resultMessage = "Dealer wins with \(ComputerScore) Better luck next time!"
                         playerCredits -= currentBet
                     } else if ComputerScore == playerScore {
                         resultMessage = "Push"
                     } else {
-                        resultMessage = "You win! Dealer had \(ComputerScore)"
+                        resultMessage = "You win! Dealer had \(ComputerScore) You got lucky!"
                         playerCredits += currentBet
                     }
                 gameOver = true
