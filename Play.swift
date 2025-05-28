@@ -1,24 +1,5 @@
 import SwiftUI
-//import Foundation
-//import AVFoundation
 
-
-
-class AudioManager: ObservableObject {
-//    var player: AVAudioPlayer?
-    
-    
-//    func playSound(named soundName: String) {
-//        if let url = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
-//            do {
-//                player = try AVAudioPlayer(contentsOf: url)
-//                player?.play()
-//            } catch {
-//                print("Error playing sound: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-}
         struct PlayPage: View {
             @State var gameStarted = false
             @State var gameOver = false
