@@ -113,7 +113,7 @@ struct NewEnviornment: View {
               
             }
             Button("Back to Green"){
-                
+                CEnviornment = .green
             }
             .font(.system(size: 20, weight: .bold, design: .rounded))
             .padding()

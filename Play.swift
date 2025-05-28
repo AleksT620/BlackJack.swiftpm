@@ -149,9 +149,14 @@ class AudioManager: ObservableObject {
                         
                     }
                     
+                  
+                    
+                    
+                    
+                    
                     if !gameStarted {
                         HStack{
-                            
+                           
                             ZStack{
                                 RoundedRectangle(cornerRadius: 15)
                                     .foregroundStyle(.white)
@@ -353,6 +358,7 @@ class AudioManager: ObservableObject {
                     }
                     
                     if gameOver {
+                      
                         Text(resultMessage)
                             .font(.title2)
                             .foregroundColor(.red)
